@@ -46,18 +46,8 @@ function Title(arg1, arg2) {
     );
 }
 
-//function HomePage() {
-//        return (
-//            <div>
-//               <GlobalStyle/>
-//               <Title tag="h1">Boas vindas de volta!</Title>
-//               <h2>Discord - Alura Matrix</h2>             
-//            </div>
+//<a href="https://ibb.co/qDNz3yK"><img src="https://i.ibb.co/dfPSwWF/The-Witcher-Wallpaper.jpg" alt="The-Witcher-Wallpaper" border="0"></a>
 //
-//        )
-//}
-//  export default HomePage
-
 export default function PaginaInicial() {
     const username = 'xerlyzin';
 
@@ -67,8 +57,8 @@ export default function PaginaInicial() {
             <Box
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    backgroundColor: appConfig.theme.colors.primary[500],
-                    backgroundImage: 'url(https://c4.wallpaperflare.com/wallpaper/707/434/344/ciri-the-witcher-3-games-ps4-games-wallpaper-preview.jpg)',
+                    backgroundColor: appConfig.theme.colors.primary[300],
+                    backgroundImage: 'url(https://i.ibb.co/dfPSwWF/The-Witcher-Wallpaper.jpg)',
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 }}
             >
@@ -84,7 +74,7 @@ export default function PaginaInicial() {
                         width: '100%', maxWidth: '700px',
                         borderRadius: '5px', padding: '32px', margin: '16px',
                         boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-                        backgroundColor: appConfig.theme.colors.neutrals[700],
+                        backgroundColor: appConfig.theme.colors.neutrals[600],
                     }}
                 >
                     {/* Formulário */}
