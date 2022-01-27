@@ -1,9 +1,11 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
+import React from 'react';
+import { useRouter} from 'next/router';
 import appConfig from '../config.json';
 
 function GlobalStyle() {
     return (
-      <style global jsx>{`
+        <style global jsx>{`
         * {
           margin: 0;
           padding: 0;
@@ -28,9 +30,9 @@ function GlobalStyle() {
         /* ./App fit Height */ 
       `}</style>
     );
-  }
+}
 
-function Title(arg1, arg2) {
+function Title(arg1) {
     const Tag = arg1.tag || 'h1';
     return (
         <>
@@ -46,10 +48,9 @@ function Title(arg1, arg2) {
     );
 }
 
-//<a href="https://ibb.co/qDNz3yK"><img src="https://i.ibb.co/dfPSwWF/The-Witcher-Wallpaper.jpg" alt="The-Witcher-Wallpaper" border="0"></a>
-//
 export default function PaginaInicial() {
-    const username = 'xerlyzin';
+    const [username, setUsername] = React.useState('');
+    const rout = useRouter();
 
     return (
         <>
@@ -80,6 +81,11 @@ export default function PaginaInicial() {
                     {/* Formulário */}
                     <Box
                         as="form"
+                        onSubmit={function (event){
+                            event.preventDefault();
+                            rout.push('/chat')
+                            //window.location.href = '/chat';
+                        }}
                         styleSheet={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                             width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
@@ -91,6 +97,10 @@ export default function PaginaInicial() {
                         </Text>
 
                         <TextField
+                            value={username}
+                            onChange={function handler(event) {
+                                setUsername(event.target.value);
+                            }}
                             fullWidth
                             textFieldColors={{
                                 neutral: {
@@ -101,6 +111,8 @@ export default function PaginaInicial() {
                                 },
                             }}
                         />
+
+
                         <Button
                             type='submit'
                             label='Entrar'
