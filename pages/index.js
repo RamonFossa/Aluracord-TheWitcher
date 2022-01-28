@@ -1,36 +1,9 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import React from 'react';
-import { useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-function GlobalStyle() {
-    return (
-        <style global jsx>{`
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          list-style: none;
-        }
-        body {
-          font-family: 'Open Sans', sans-serif;
-        }
-        /* App fit Height */ 
-        html, body, #__next {
-          min-height: 100vh;
-          display: flex;
-          flex: 1;
-        }
-        #__next {
-          flex: 1;
-        }
-        #__next > * {
-          flex: 1;
-        }
-        /* ./App fit Height */ 
-      `}</style>
-    );
-}
+
 
 function Title(arg1) {
     const Tag = arg1.tag || 'h1';
@@ -49,12 +22,11 @@ function Title(arg1) {
 }
 
 export default function PaginaInicial() {
-    const [username, setUsername] = React.useState('');
+    const [username, setUsername] = React.useState('xerlyzin');
     const rout = useRouter();
 
     return (
         <>
-            <GlobalStyle />
             <Box
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -81,9 +53,9 @@ export default function PaginaInicial() {
                     {/* Formulário */}
                     <Box
                         as="form"
-                        onSubmit={function (event){
+                        onSubmit={function (event) {
                             event.preventDefault();
-                            rout.push('/chat')
+                            rout.push('/cht')
                             //window.location.href = '/chat';
                         }}
                         styleSheet={{
