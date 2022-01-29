@@ -14,5 +14,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
-  }
+  },
+  "repository": "git@github.com:XerlyZin/Aluracord-TheWitcher.git",
+  "author": "xerlyzin <ramon.fossa@gmail.com>"
 }

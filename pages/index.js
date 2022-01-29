@@ -55,8 +55,7 @@ export default function PaginaInicial() {
                         as="form"
                         onSubmit={function (event) {
                             event.preventDefault();
-                            rout.push('/cht')
-                            //window.location.href = '/chat';
+                            rout.push('Error')
                         }}
                         styleSheet={{
                             display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
