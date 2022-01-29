@@ -3,8 +3,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-
-
 function Title(arg1) {
     const Tag = arg1.tag || 'h1';
     return (
@@ -21,9 +19,25 @@ function Title(arg1) {
     );
 }
 
+// function followersReturn() {
+//     fetch(`https://api.github.com/users/xerlyzin`).then(function(serverAnswer) { return serverAnswer.json() }).then(function(convertedAnswer) {
+        
+//         console.log(convertedAnswer.data);
+//     })
+// }
+
 export default function PaginaInicial() {
-    const [username, setUsername] = React.useState('xerlyzin');
+    const [username, setUsername] = React.useState('');
     const rout = useRouter();
+    let userfollowers;
+    let image;
+    if (username.length > 2) {
+        image = `https://github.com/${username}.png`;
+    } else {
+        image = `https://image.mmradio.com/sites/default/files/styles/article_wider__1x_/public/medallion.jpg`;
+    }
+
+    
 
     return (
         <>
@@ -50,7 +64,6 @@ export default function PaginaInicial() {
                         backgroundColor: appConfig.theme.colors.neutrals[600],
                     }}
                 >
-                    {/* Formulário */}
                     <Box
                         as="form"
                         onSubmit={function (event) {
@@ -96,10 +109,6 @@ export default function PaginaInicial() {
                             }}
                         />
                     </Box>
-                    {/* Formulário */}
-
-
-                    {/* Photo Area */}
                     <Box
                         styleSheet={{
                             display: 'flex',
@@ -120,7 +129,7 @@ export default function PaginaInicial() {
                                 borderRadius: '50%',
                                 marginBottom: '16px',
                             }}
-                            src={`https://github.com/${username}.png`}
+                            src={`${image}`}
                         />
                         <Text
                             variant="body4"
@@ -133,8 +142,62 @@ export default function PaginaInicial() {
                         >
                             {username}
                         </Text>
+
+                        <Box
+                            styleSheet={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                maxWidth: '200px',
+                                padding: '4px',
+                                backgroundColor: appConfig.theme.colors.neutrals[900],
+                                border: '1px solid',
+                                borderColor: appConfig.theme.colors.neutrals[100],
+                                borderRadius: '10px',
+                                flex: 1
+                            }}
+                        >
+                            <Text
+                                variant="body4"
+                                styleSheet={{
+                                    color: appConfig.theme.colors.neutrals[200],
+                                    backgroundColor: appConfig.theme.colors.neutrals[900],
+                                    borderRadius: '5px'
+                                }}
+                            >
+                                0 Repositórios
+                            </Text>
+
+                        </Box>
+
+                        <Box
+                            styleSheet={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                maxWidth: '200px',
+                                padding: '4px',
+                                backgroundColor: appConfig.theme.colors.neutrals[900],
+                                border: '1px solid',
+                                borderColor: appConfig.theme.colors.neutrals[100],
+                                borderRadius: '10px',
+                                flex: 1
+                            }}
+                        >
+                            <Text
+                                variant="body4"
+                                styleSheet={{
+                                    color: appConfig.theme.colors.neutrals[200],
+                                    backgroundColor: appConfig.theme.colors.neutrals[900],
+                                    borderRadius: '5px'
+                                }}
+                            >
+                                0 Seguidores
+                            </Text>
+
+                        </Box>
+
                     </Box>
-                    {/* Photo Area */}
                 </Box>
             </Box>
         </>
